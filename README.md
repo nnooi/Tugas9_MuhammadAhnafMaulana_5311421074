@@ -4,7 +4,6 @@
 
 #### Penjelasan
 ![alt text](https://github.com/nnooi/Tugas9_MuhammadAhnafMaulana_5311421074/blob/e7fbaf92ac80a6283339743497efda1c60274b9d/Praktikum4/img/Metode_BFS.jpeg?raw=true)
-
 Pada module 4 BSF digunakan untuk melakukan atau mencari suatu goal state dari initial statenya dengan metode yang bisa dilihat pada gambar diatas. 
 
 Pada Metode tersebut semua node pada level n akan dikunjungi  terlebih dahulu sebelum mengunjungi node-node pada level n+1. Pencarian dimulai dari node akar terus ke level ke-1 dari kiri ke kanan, kemudian berpindah ke level berikutnya demikian pula dari kiri ke kanan hingga ditemukannya solusi. 
@@ -15,12 +14,48 @@ Pada Metode tersebut semua node pada level n akan dikunjungi  terlebih dahulu se
 - Ubahlah method static void main sehingga bentuk tree seperti Gambar 4.6 dapat dibentuk. Kemudian tentukan bagaimana algoritma BFS dapat menemukan node 5. 
 - Ubahlah method static void main sehingga bentuk tree seperti Gambar 4.5 dapat dibentuk.  Kemudian tentukan bagaimana algoritma BFS dapat menemukan node 9
 - Ubahlah kode program di atas sehingga bentuk tree seperti Gambar 4.7 dapat dibentuk. Kemudian tentukan bagaimana algoritma BFS dapat menemukan node C
-- 
 Note : Gambar terdapat pada Module praktikum
 
+#### Jawab
+- Algoritma BFS dalam program di atas digunakan untuk mencari jarak terpendek dari node awal (dalam kasus ini, node n3) ke semua node lain dalam graph. Algoritma ini juga akan menentukan node yang dijangkau dengan menyusuri graph secara berlapis (layer by layer) dari node awal.
+Algoritma dimulai dengan menginisialisi semua node dalam grapgh dengan beberapa parameter, salah satunya yaitu distace (jarak). Kemudian n3 (node 3) diinisiasi dengan jarak = 0. dan algoritma akan menjelajahi node awal (node3). Selanjutnya algoritma akan menjelajahi node node yang berdekatan (distancenya kecil = 1) yaitu node 4 dan node 2. Selanjutnya algoritma akan mengunjungi node 5, 6, dan 1 dengan distance 2 dari jarak awal. Dan yang terakhir akan mengunjungi node 7 dan node 8. Maka dari itu, BFS dalam menentukan node 8, 6, dan ke 7 dapat dilakukan dengan dengan memperhatikan distance antar node dengan node awal. hasil dari distancenya dapat dilihat pada gambar berikut
+![alt text](https://github.com/nnooi/Tugas9_MuhammadAhnafMaulana_5311421074/blob/2dd1af28126f8cdf3d93a03b8fd162ce3999b91d/Praktikum4/img/hasilno1.jpeg?raw=true)
+- Lalu pada soal berikutnya, ubah static void main dr soal 1 agar menjadi tree pada gambar 4.5. static void main dapat dilihat pada code dibawah dan akan diubah nilainya untuk membuat tree seperti yang diperintahkan denagan sc yang saya buat ([sc, Tugas no 2](https://github.com/nnooi/Tugas9_MuhammadAhnafMaulana_5311421074/blob/2dd1af28126f8cdf3d93a03b8fd162ce3999b91d/Praktikum4/src/tugas2.java))
+```sh
+public static void main(String[] args){
+            AdjacencyList graph = new AdjacencyList();
+            Node n1 = new Node(1);
+```
+Lalu sc yang dijalankan akan memberikan desain tree yang diminta, dan node 5 didapatkan pada layer 2 dari node awal berdasarkan distancenya yaitu 2
+![alt text](https://github.com/nnooi/Tugas9_MuhammadAhnafMaulana_5311421074/blob/2dd1af28126f8cdf3d93a03b8fd162ce3999b91d/Praktikum4/img/hasilno2.jpeg?raw=true)
+- Ubah code yang sebelumnya agar menjadi desain tree yang diminta ([sc, Tugas no 3](https://github.com/nnooi/Tugas9_MuhammadAhnafMaulana_5311421074/blob/2dd1af28126f8cdf3d93a03b8fd162ce3999b91d/Praktikum4/src/tugas3.java))
+Lalu jalankan dan akan memberikan hasil sebagai berikut
+![alt text](https://github.com/nnooi/Tugas9_MuhammadAhnafMaulana_5311421074/blob/2dd1af28126f8cdf3d93a03b8fd162ce3999b91d/Praktikum4/img/hasilno3.jpeg?raw=true)
+node 9 ditemukan pada layer 3 dikarenakan distancenya dengan node awal yaitu berjarak 3.
+- Selanjutnya ubah code untuk memberikan desain tree pada gambar 4.7. Untuk desain tree yang digunakan menggunakan huruf, maka tipe data pada node diubah terlebih dahulu menjadi char. 
+```sh
+public static class Node
+    {
+        char data;
+        int distance;
+        Node predecessor;
+        NodeColour colour;
+            public Node(char data)
+                {
+                this.data = data;
+                }
+        public String toString()
+            {
+            return "(" + data + ",d=" + distance + ")";
+            }
+    }
+```
+Selanjutnya saya ubah code manjadi ([sc, Tugas no 4](https://github.com/nnooi/Tugas9_MuhammadAhnafMaulana_5311421074/blob/2dd1af28126f8cdf3d93a03b8fd162ce3999b91d/Praktikum4/src/no4.java)), lalu menghasilkan desain tree sebagai berikut :
+![alt text](https://github.com/nnooi/Tugas9_MuhammadAhnafMaulana_5311421074/blob/2dd1af28126f8cdf3d93a03b8fd162ce3999b91d/Praktikum4/img/hasilno4.jpeg?raw=true)
+Dapat dilihat, bahwa BFS dapat menentukan node C pada layer 3 dikarenakan distancenya dengan node awalnya (node F) bernilai 3.
 
-
-
+# Module 5
+## TEKNIK HEURISTIC SEARCH (Heuristic Search)
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
@@ -208,3 +243,4 @@ MIT
    [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
    [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
    [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
+
