@@ -4,6 +4,7 @@
 
 #### Penjelasan
 ![alt text](https://github.com/nnooi/Tugas9_MuhammadAhnafMaulana_5311421074/blob/e7fbaf92ac80a6283339743497efda1c60274b9d/Praktikum4/img/Metode_BFS.jpeg?raw=true)
+
 Pada module 4 BSF digunakan untuk melakukan atau mencari suatu goal state dari initial statenya dengan metode yang bisa dilihat pada gambar diatas. 
 
 Pada Metode tersebut semua node pada level n akan dikunjungi  terlebih dahulu sebelum mengunjungi node-node pada level n+1. Pencarian dimulai dari node akar terus ke level ke-1 dari kiri ke kanan, kemudian berpindah ke level berikutnya demikian pula dari kiri ke kanan hingga ditemukannya solusi. 
